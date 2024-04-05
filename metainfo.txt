@@ -1,7 +1,0 @@
-
-Name of Quantlet: EM_Algorithm
-Published in: 'Non'
-Description: 'Simulation example for Expectation Maximization use'
-Keywords: 'simulation, R, Expectation Maximization, EM'
-Author: 'Ruting Rainy WANG' 
-Submitted:  '05.04.2024'

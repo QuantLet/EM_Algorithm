@@ -2,7 +2,7 @@
 rm(list = ls(all = TRUE))
 
 # change to your owner folder
-wdir = "/Users/ruting/Documents/Github/FRM/FRM_Quantlet/FRM_All"
+wdir = "/Users/ruting/Documents/Github/EM_Algorithm/"
 
 # Parameter setting
 # Initialize parameters and storage for history
@@ -10,8 +10,8 @@ mu1_init <- 0
 mu2_init <- 2
 sigma1_init <- 1
 sigma2_init <- 1
-pi_init <- 0.5
-iterations <- 250
+pi_init <- 0.1
+iterations <- 500
 
 n <- 250
 mu1_true <- 0
@@ -63,8 +63,9 @@ for (i in 1:iterations) {
 # Assuming the 'history' matrix is already populated with parameter values from the EM algorithm
 
 # Open a PDF device to save the plots
-pdf("convergence_plots.pdf", width = 12, height = 4)
 
+png(paste0(wdir,"convergence_plots.png"), 
+    width = 900, height = 600, bg = "transparent")
 # Setup the layout for the plots
 par(mfrow = c(1, 2), oma = c(0, 0, 0, 0), mar = c(4, 4, 2, 1), las = 1)
 
@@ -76,7 +77,7 @@ abline(h = mu2_true, col = 'red', lty = 2)
 
 
 # Plot the convergence of proportion
-plot(1:iterations, history[, 5], type = 'l', col = 'orange', ylim = range(c(history[, 5], pi_true)), xlab = 'Iteration', ylab = 'Proportion', main = 'Convergence of Proportion')
+plot(1:iterations, history[, 5], type = 'l', col = 'orange', ylim = range(c(history[, 5], pi1_true)), xlab = 'Iteration', ylab = 'Proportion', main = 'Convergence of Proportion')
 abline(h = pi1_true, col = 'orange', lty = 2)
 
 # Close the PDF device
